@@ -1,15 +1,20 @@
 package com.sangik.springweb2.order;
 
 import com.sangik.springweb2.Discount.DiscountPolicy;
-import com.sangik.springweb2.Discount.FixedDiscountPolicy;
 import com.sangik.springweb2.Member.Member;
 import com.sangik.springweb2.Member.MemberRepository;
-import com.sangik.springweb2.Member.MemoryMemberRepository;
 
-public class OrderServiceImpl implements OrderService{
+public class OrderServiceImpl implements OrderService {
 
-  private final MemberRepository memberRepository = new MemoryMemberRepository();
-  private final DiscountPolicy discountPolicy = new FixedDiscountPolicy();
+    private final MemberRepository memberRepository ;
+    private final DiscountPolicy discountPolicy ;
+
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
+    //private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
+    //private DiscountPolicy discountPolicy;
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
