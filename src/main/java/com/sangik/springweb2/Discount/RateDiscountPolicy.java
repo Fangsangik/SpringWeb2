@@ -2,7 +2,9 @@ package com.sangik.springweb2.Discount;
 
 import com.sangik.springweb2.Member.Grade;
 import com.sangik.springweb2.Member.Member;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RateDiscountPolicy implements DiscountPolicy {
 
     private int discountPercent = 10;
