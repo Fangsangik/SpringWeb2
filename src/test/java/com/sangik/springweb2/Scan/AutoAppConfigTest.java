@@ -1,7 +1,9 @@
 package com.sangik.springweb2.Scan;
 
 import com.sangik.springweb2.AutoAppConfig;
+import com.sangik.springweb2.Member.MemberRepository;
 import com.sangik.springweb2.Member.MemberService;
+import com.sangik.springweb2.order.OrderServiceImpl;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -14,5 +16,9 @@ public class AutoAppConfigTest {
 
         MemberService memberService = ac.getBean(MemberService.class);
         Assertions.assertThat(memberService).isInstanceOf(MemberService.class);
+
+        OrderServiceImpl bean = ac.getBean(OrderServiceImpl.class);
+        MemberRepository memberRepository = bean.getMemberRepository();
+        System.out.println("memberRepository =" + memberRepository);
     }
 }

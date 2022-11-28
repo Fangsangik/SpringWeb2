@@ -46,8 +46,8 @@ public class Order {
         return discountPrice;
     }
 
-    public void setDiscoutPrice(int discoutPrice) {
-        this.discountPrice = discoutPrice;
+    public void setDiscountPrice(int discountPrice) {
+        this.discountPrice = discountPrice;
     }
 
     @Override
